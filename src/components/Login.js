@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Header } from "./Header";
 import { checkValidData } from "../utils/validate";
 import {
@@ -8,7 +8,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const Login = (props) => {
@@ -51,7 +51,6 @@ const Login = (props) => {
                   displayName,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
               setErrorMessage(error.message);
@@ -69,7 +68,14 @@ const Login = (props) => {
         password.current.value
       )
         .then((userCredential) => {
-          navigate("/browse");
+          const { uid, email, displayName } = userCredential.user;
+          dispatch(
+            addUser({
+              uid,
+              email,
+              displayName,
+            })
+          );
         })
         .catch((error) => {
           const errorCode = error.code;

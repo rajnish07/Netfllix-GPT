@@ -15,6 +15,10 @@ export async function getNowplayingMovies() {
   );
 }
 
+export async function getPopularMovies() {
+  return fetch("https://api.themoviedb.org/3/movie/popular?page=1", options);
+}
+
 export async function getMovieVideo(movieId) {
   return fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos`, options);
 }

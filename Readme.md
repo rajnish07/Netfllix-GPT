@@ -10,3 +10,8 @@
 - Home Page
 - SignIn/SignUp Page
 - NetflixGPT
+
+//Login Cred
+
+- rajnish@gm2.com
+- Rajn123

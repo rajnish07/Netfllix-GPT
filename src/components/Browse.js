@@ -17,7 +17,7 @@ const Browse = (props) => {
   const { showGPTSearch } = useSelector((store) => store.gpt);
 
   return (
-    <div>
+    <div className="relative">
       <Header />
       {showGPTSearch ? (
         <GPTSearch />
@@ -27,6 +27,9 @@ const Browse = (props) => {
           <SecondaryContainer />
         </>
       )}
+      <div className="absolute mb-8 z-50 text-red-600 p-2 bottom-6 bg-black left-0 right-0 mx-auto w-32 rounded-full cursor-pointer">
+        <span>&darr; More results</span>
+      </div>
     </div>
   );
 };

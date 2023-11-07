@@ -19,6 +19,14 @@ export async function getPopularMovies() {
   return fetch("https://api.themoviedb.org/3/movie/popular?page=1", options);
 }
 
+export async function getTopRatedMovies() {
+  return fetch("https://api.themoviedb.org/3/movie/top_rated?page=1", options);
+}
+
+export async function getUpcomingMovies() {
+  return fetch("https://api.themoviedb.org/3/movie/upcoming?page=1", options);
+}
+
 export async function getMovieVideo(movieId) {
   return fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos`, options);
 }

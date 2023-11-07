@@ -7,3 +7,4 @@ export const BACKGROUND =
 export const TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlYTk5NDZiOTgxMGE3NmRlOTdiZWE0NDUzZjdlNjIyYiIsInN1YiI6IjY1MzFmMTBlOWFjNTM1MDg3YjQ0ZTgyZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-xDK-3m2la4If-obVAW2oXpdUZxgZ_pDSLeTMWI27Gs";
 export const IMAGECDNURL = "https://image.tmdb.org/t/p/w780";
+export const openAIKey = "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";

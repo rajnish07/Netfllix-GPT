@@ -5,17 +5,19 @@ import { BACKGROUND } from "../utils/contants";
 
 const GPTSearch = (props) => {
   return (
-    <div className="text-white">
+    <>
       <div className="absolute -z-10">
         <img
           src={BACKGROUND}
           alt="background-img"
-          className="aspect-mobile md:aspect-video"
+          className="h-screen object-cover"
         />
       </div>
-      <GPTSearchBar />
-      <GPTMovieSuuggestions />
-    </div>
+      <div className="text-white pt-[30%] md:pt-0">
+        <GPTSearchBar />
+        <GPTMovieSuuggestions />
+      </div>
+    </>
   );
 };
 

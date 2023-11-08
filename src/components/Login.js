@@ -87,8 +87,8 @@ const Login = (props) => {
   return (
     <div className="mw-full h-100vh">
       <Header />
-      <div className="absolute bg-black w-4/5 md:w-3/12 mt-28 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-md">
-        <form className="flex flex-col px-16 pt-16">
+      <div className="absolute bg-black w-[90%] md:w-3/12 mt-28 mx-auto right-0 left-0 text-white bg-opacity-80 rounded-md">
+        <form className="flex flex-col px-8 md:px-16 pt-16">
           <label className="text-3xl">
             {isSignInForm ? "Sign In" : "Sign Up"}
           </label>
@@ -145,7 +145,7 @@ const Login = (props) => {
       <img
         src={BACKGROUND}
         alt="background-img"
-        className="aspect-mobile md:aspect-video"
+        className="h-screen object-cover"
       />
     </div>
   );

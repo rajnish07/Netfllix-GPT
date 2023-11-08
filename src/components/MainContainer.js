@@ -7,7 +7,7 @@ const MainContainer = (props) => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);
   return (
     movies && (
-      <div className="relative">
+      <div className="relative pt-[12%] md:pt-0 bg-black">
         <VideoTitle movie={movies[0]} />
         <VideoBackground movie={movies[0]} />
       </div>

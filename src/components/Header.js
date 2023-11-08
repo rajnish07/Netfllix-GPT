@@ -40,10 +40,10 @@ const Header = (props) => {
   };
 
   return (
-    <div className="absolute w-full bg-gradient-to-b from-black flex justify-between items-center z-50">
-      <img src={LOGO} alt="logo" className="w-52" />
+    <div className="absolute w-full bg-gradient-to-b from-black flex flex-col md:flex-row justify-between items-center z-50">
+      <img src={LOGO} alt="logo" className="w-36 md:w-52" />
       {user && (
-        <div className="flex p-4">
+        <div className="hidden md:flex p-4">
           <button
             className="bg-purple-600 text-white p-2 mx-4 rounded-md"
             onClick={handleGPTSearchClick}

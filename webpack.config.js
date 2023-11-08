@@ -1,4 +1,7 @@
 const path = require("path");
+const webpack = require("webpack");
+require("dotenv").config({ path: "./.env" });
+
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -23,7 +26,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(scss|css)$/i,
+        test: /\.(sc|c)ss$/i,
         include: path.resolve(__dirname, "src"),
         use: ["style-loader", "css-loader", "postcss-loader"],
       },
@@ -48,6 +51,9 @@ module.exports = {
       title: "Netflix GPT",
       filename: "index.html",
       template: "src/index.html",
+    }),
+    new webpack.DefinePlugin({
+      "process.env": JSON.stringify(process.env),
     }),
   ],
 };

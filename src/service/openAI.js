@@ -1,8 +1,7 @@
 import OpenAI from "openai";
-import { openAIKey } from "../utils/contants";
 
 const openai = new OpenAI({
-  apiKey: openAIKey,
+  apiKey: process.env.OpenAI_Key,
   dangerouslyAllowBrowser: true,
 });
 

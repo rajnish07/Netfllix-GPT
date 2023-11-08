@@ -19,14 +19,6 @@
 
 - npm install
 
-## Set up the environment variables
-
-- Create a .env file at root level in the directory
-- Add these variables to make the app run smoothly without any errors.
-- OpenAI_Key - Get your openAI key and add it here
-- TOKEN - Add the TMDB app secret/token
-- FIREBASE_KEY - Add the firebase Api key
-
 ## Run Locally
 
 - npm start

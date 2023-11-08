@@ -10,7 +10,7 @@ const GPTSearch = (props) => {
         <img
           src={BACKGROUND}
           alt="background-img"
-          className="h-screen object-cover"
+          className="h-screen object-cover w-full"
         />
       </div>
       <div className="text-white pt-[30%] md:pt-0">

@@ -145,7 +145,7 @@ const Login = (props) => {
       <img
         src={BACKGROUND}
         alt="background-img"
-        className="h-screen object-cover"
+        className="h-screen object-cover w-full"
       />
     </div>
   );

@@ -16,12 +16,12 @@ const GPTSearchBar = (props) => {
       <form className="bg-black w-full md:w-1/2 box-border">
         <input
           type="text"
-          className="p-4 m-4 w-4/5 outline-none text-black"
+          className="p-4 w-4/5 outline-none text-black block md:inline mx-auto my-4 md:m-4"
           placeholder="What would you like to watch today?"
           ref={searchText}
         />
         <button
-          className="py-2 px-4 bg-red-700 text-white rounded-md"
+          className="py-2 px-4 bg-red-700 text-white rounded-md block md:inline mx-auto md:mx-0 mb-4 md:mb-0"
           onClick={handleSearch}
         >
           Search

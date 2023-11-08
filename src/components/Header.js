@@ -43,16 +43,16 @@ const Header = (props) => {
     <div className="absolute w-full bg-gradient-to-b from-black flex flex-col md:flex-row justify-between items-center z-50">
       <img src={LOGO} alt="logo" className="w-36 md:w-52" />
       {user && (
-        <div className="hidden md:flex p-4">
+        <div className="flex p-1 md:p-4">
           <button
-            className="bg-purple-600 text-white p-2 mx-4 rounded-md"
+            className="bg-purple-600 text-white p-1 md:p-2 mx-2 md:mx-4 rounded-md text-xs md:text-lg"
             onClick={handleGPTSearchClick}
           >
             {gptSearch ? "Browse" : "GPTSearch"}
           </button>
           <img className="w-8 mr-2" alt="usericon" src={AVATAR} />
           <button
-            className="font-bold text-white cursor-pointer"
+            className="font-bold text-white cursor-pointer text-xs md:text-lg"
             onClick={signOutUser}
           >
             (Sign Out)

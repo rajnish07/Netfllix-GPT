@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
 import { signOut, onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { AVATAR, LOGO } from "../utils/contants";
@@ -10,6 +10,7 @@ import { toggleGPTSearchView } from "../utils/gptSlice";
 const Header = (props) => {
   const user = useSelector((store) => store.user);
   const gptSearch = useSelector((store) => store.gpt.showGPTSearch);
+  const { videoId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const signOutUser = () => {
@@ -25,7 +26,7 @@ const Header = (props) => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid, email, displayName }));
-        navigate("/browse");
+        videoId ? navigate(`/browse/${videoId}`) : navigate("/browse");
       } else {
         dispatch(removeUser());
         navigate("/");

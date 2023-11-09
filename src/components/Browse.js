@@ -15,6 +15,7 @@ const Browse = (props) => {
   useTopRatedMovies();
   useUpcomingMovies();
   const { showGPTSearch } = useSelector((store) => store.gpt);
+  const movies = useSelector((store) => store.movies?.nowPlayingMovies);
 
   return (
     <div className="relative">
@@ -22,10 +23,12 @@ const Browse = (props) => {
       {showGPTSearch ? (
         <GPTSearch />
       ) : (
-        <>
-          <MainContainer />
-          <SecondaryContainer />
-        </>
+        movies && (
+          <>
+            <MainContainer movie={movies[0]} />
+            <SecondaryContainer />
+          </>
+        )
       )}
       {/* <div className="absolute mb-8 z-50 text-red-600 p-2 bottom-6 bg-black left-0 right-0 mx-auto w-32 rounded-full cursor-pointer">
         <span>&darr; More results</span>

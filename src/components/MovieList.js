@@ -20,5 +20,3 @@ const MovieList = ({ title, movieList }) => {
 };
 
 export default MovieList;
-
-//https://image.tmdb.org/t/p/w780/mOX5O6JjCUWtlYp5D8wajuQRVgy.jpg

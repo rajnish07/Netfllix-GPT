@@ -28,3 +28,7 @@ export async function getUpcomingMovies() {
 export async function getMovieVideo(movieId) {
   return fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos`, options);
 }
+
+export async function getMovieById(movieId) {
+  return fetch(`https://api.themoviedb.org/3/movie/${movieId}`, options);
+}

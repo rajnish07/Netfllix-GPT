@@ -1,9 +1,14 @@
 import React from "react";
 import { IMAGECDNURL } from "../utils/contants";
+import { useNavigate } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate();
   return (
-    <div className="w-32 md:w-48 cursor-pointer relative h-48 md:h-72">
+    <div
+      className="w-32 md:w-48 cursor-pointer relative h-48 md:h-72"
+      onClick={() => navigate(`/browse/${movie.id}`)}
+    >
       <img
         src={`${IMAGECDNURL}${movie.poster_path}`}
         alt="movie-card"

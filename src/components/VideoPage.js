@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addSelectedMovie, addTrailer } from "../utils/movieSlice";
 import MainContainer from "./MainContainer";
 import { Header } from "./Header";
+import VideoDetails from "./VideoDetails";
 
 const VideoPage = (props) => {
   const { videoId } = useParams();
@@ -22,6 +23,7 @@ const VideoPage = (props) => {
     <div>
       <Header />
       {movie && <MainContainer movie={movie} />}
+      <VideoDetails movie={movie} />
     </div>
   );
 };

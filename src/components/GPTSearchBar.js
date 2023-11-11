@@ -5,8 +5,9 @@ const GPTSearchBar = (props) => {
   const searchText = useRef(null);
   const handleSearch = async (e) => {
     e.preventDefault();
+    const prompt = `Act as a movie recommendation engine and recommmend me 5 movies comma separated based on this as query:${searchText.current.value}. For Example movie name 1, movie name 2, movie name 3, movie name 4, movie name 5`;
     const results = openai.chat.completions.create({
-      messages: [{ role: "user", content: searchText.current.value }],
+      messages: [{ role: "user", content: prompt }],
       model: "gpt-3.5-turbo",
     });
   };

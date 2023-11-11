@@ -36,13 +36,17 @@ const Header = (props) => {
   }, []);
 
   const handleGPTSearchClick = () => {
-    //Toggle GPTSearch Component
     dispatch(toggleGPTSearchView());
   };
 
   return (
     <div className="absolute w-full bg-gradient-to-b from-black flex flex-col md:flex-row justify-between items-center z-50">
-      <img src={LOGO} alt="logo" className="w-36 md:w-52" />
+      <img
+        src={LOGO}
+        alt="logo"
+        className="w-36 md:w-52 cursor-pointer"
+        onClick={() => navigate("/")}
+      />
       {user && (
         <div className="flex p-1 md:p-4">
           <button

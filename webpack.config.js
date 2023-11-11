@@ -51,7 +51,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Netflix GPT",
       filename: "index.html",
-      template: "src/index.html",
+      template: "public/index.html",
     }),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(process.env),

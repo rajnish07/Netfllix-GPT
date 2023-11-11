@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 require("dotenv").config({ path: "./.env" });
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -55,6 +56,9 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env": JSON.stringify(process.env),
+    }),
+    new CopyWebpackPlugin({
+      patterns: [{ from: "public/_redirects", to: "." }],
     }),
   ],
 };

@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { auth } from "../utils/firebase";
-import { signOut, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
 import { AVATAR, LOGO } from "../utils/contants";
 import { toggleGPTSearchView } from "../utils/gptSlice";
+import { signOutUser } from "../utils/userAuthentication";
 
 const Header = (props) => {
   const user = useSelector((store) => store.user);
@@ -13,13 +14,6 @@ const Header = (props) => {
   const { videoId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const signOutUser = () => {
-    signOut(auth)
-      .then(() => {})
-      .catch((error) => {
-        navigate("/error");
-      });
-  };
 
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
@@ -48,7 +42,7 @@ const Header = (props) => {
         onClick={() => navigate("/")}
       />
       {user && (
-        <div className="flex p-1 md:p-4">
+        <div className="hidden md:flex p-1 md:p-4">
           <button
             className="bg-purple-600 text-white p-1 md:p-2 mx-2 md:mx-4 rounded-md text-xs md:text-lg"
             onClick={handleGPTSearchClick}

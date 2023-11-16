@@ -32,3 +32,10 @@ export async function getMovieVideo(movieId) {
 export async function getMovieById(movieId) {
   return fetch(`https://api.themoviedb.org/3/movie/${movieId}`, options);
 }
+
+export async function searchMovie(query) {
+  return fetch(
+    `https://api.themoviedb.org/3/search/movie?query="${query}"&include_adult=false&language=en-US&page=1`,
+    options
+  );
+}

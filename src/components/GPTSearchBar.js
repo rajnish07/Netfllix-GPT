@@ -1,15 +1,31 @@
 import React, { useRef } from "react";
 import openai from "../service/openAI";
+import { useDispatch } from "react-redux";
+import { searchMovie } from "../service/movies";
+import { addGPTMovies, addSuggestions } from "../utils/gptSlice";
 
 const GPTSearchBar = (props) => {
   const searchText = useRef(null);
+  const dispatch = useDispatch();
   const handleSearch = async (e) => {
     e.preventDefault();
-    const prompt = `Act as a movie recommendation engine and recommmend me 5 movies comma separated based on this as query:${searchText.current.value}. For Example movie name 1, movie name 2, movie name 3, movie name 4, movie name 5`;
-    const results = openai.chat.completions.create({
-      messages: [{ role: "user", content: prompt }],
-      model: "gpt-3.5-turbo",
-    });
+    const prompt = `Act as a movie recommendation engine and recommmend me 5 movies comma separated based on this as query:${searchText.current.value}. For Example movieName1, movieName2, movieName3, movieName4, movieName5`;
+    openai.chat.completions
+      .create({
+        messages: [{ role: "user", content: prompt }],
+        model: "gpt-3.5-turbo",
+      })
+      .then((result) => {
+        const suggestions = result.choices[0].message.content.split(",");
+        dispatch(addSuggestions(suggestions));
+        Promise.all(
+          suggestions.map((search) =>
+            searchMovie(search).then((res) => res.json())
+          )
+        ).then((data) => {
+          dispatch(addGPTMovies(data));
+        });
+      });
   };
 
   return (

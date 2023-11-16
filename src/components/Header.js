@@ -42,14 +42,16 @@ const Header = (props) => {
         onClick={() => navigate("/")}
       />
       {user && (
-        <div className="hidden md:flex p-1 md:p-4">
-          <button
-            className="bg-purple-600 text-white p-1 md:p-2 mx-2 md:mx-4 rounded-md text-xs md:text-lg"
-            onClick={handleGPTSearchClick}
-          >
-            {gptSearch ? "Browse" : "GPTSearch"}
-          </button>
-          <img className="w-8 mr-2" alt="usericon" src={AVATAR} />
+        <div className="hidden md:flex p-1 md:p-4 items-center">
+          {!gptSearch && (
+            <button
+              className="bg-purple-600 text-white p-1 md:p-2 mx-2 md:mx-4 rounded-md text-xs md:text-lg"
+              onClick={handleGPTSearchClick}
+            >
+              GPTSearch
+            </button>
+          )}
+          <img className="w-8 h-8 mr-2" alt="usericon" src={AVATAR} />
           <button
             className="font-bold text-white cursor-pointer text-xs md:text-lg"
             onClick={signOutUser}

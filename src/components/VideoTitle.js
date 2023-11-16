@@ -6,7 +6,7 @@ const VideoTitle = ({ movie }) => {
       <h1 className="hidden md:block text-6xl font-bold">
         {movie.original_title}
       </h1>
-      <p className="hidden md:block w-1/4">{movie.overview}</p>
+      <p className="hidden md:block w-1/4 md:w-2/4">{movie.overview}</p>
       <div className="flex flex-col md:flex-row gap-y-2 md:gap-y-0 md:gap-x-2 mt-16 md:my-4">
         <button className="text-black w-20 md:w-24 text-md md:text-xl py-1 rounded-md bg-white hover:bg-opacity-80">
           ▶️ Play

@@ -30,6 +30,7 @@ const Header = (props) => {
   }, []);
 
   const handleGPTSearchClick = () => {
+    navigate("/");
     dispatch(toggleGPTSearchView());
   };
 

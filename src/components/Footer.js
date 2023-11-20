@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
   faMagnifyingGlass,
-  faUser,
+  faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
 import { signOutUser } from "../utils/userAuthentication";
 import { useDispatch } from "react-redux";
@@ -33,7 +33,7 @@ const Footer = (props) => {
         onClick={handleGPTSearchClick}
       />
       <FontAwesomeIcon
-        icon={faUser}
+        icon={faSignOut}
         style={{ color: "#ffffff" }}
         className="border-white border-2 rounded-full p-2"
         onClick={signOutUser}

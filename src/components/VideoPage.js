@@ -7,11 +7,13 @@ import MainContainer from "./MainContainer";
 import { Header } from "./Header";
 import VideoDetails from "./VideoDetails";
 import Footer from "./Footer";
+import GPTSearch from "./GPTSearch";
 
 const VideoPage = (props) => {
   const { videoId } = useParams();
   const dispatch = useDispatch();
   const movie = useSelector((store) => store.movies.selectedMovie);
+  const { showGPTSearch } = useSelector((store) => store.gpt);
 
   useEffect(() => {
     dispatch(addTrailer(null));
@@ -23,13 +25,16 @@ const VideoPage = (props) => {
   return (
     <div>
       <Header />
-      {movie && (
-        <>
-          <MainContainer movie={movie} />
-          <VideoDetails movie={movie} />
-        </>
+      {showGPTSearch ? (
+        <GPTSearch />
+      ) : (
+        movie && (
+          <>
+            <MainContainer movie={movie} />
+            <VideoDetails movie={movie} />
+          </>
+        )
       )}
-
       <Footer />
     </div>
   );
